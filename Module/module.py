@@ -1,14 +1,12 @@
-from happy_python import HappyLog, get_exit_code_of_cmd, HappyConfigBase
-import os
+from happy_python import HappyConfigBase
 import json
+import os
 import time
-from happy_python.happy_log import HappyLogLevel
-from os.path import join, dirname
+
+from happy_python import HappyLog, HappyConfigParser
+from happy_python import get_exit_code_of_cmd
 
 hlog = HappyLog.get_instance()
-
-
-# basic_config_info = {}
 
 website_details = []
 
@@ -49,30 +47,10 @@ website_details = []
 #     hlog.info(len(website_details))
 
 
-
-
-
-import base64
-import json
-import os
-import time
-from dataclasses import dataclass
-from datetime import datetime
-from os.path import join, dirname
-from pathlib import Path
-from typing import List
-
-from happy_python import HappyLog, HappyConfigParser, HappyDatetimeFormat
-from happy_python import get_exit_code_of_cmd, datetime_to_str
-from zymod import Zymod
-from zymod.event import ZyInternalEvent, ZyEventLevel
-from zymod.zymod import upload_zy_exception_event
-from zymod.zymod_config import LoadCustomizeZymodConfig, LoadPublicZymodConfig
-
-hlog = HappyLog.get_instance()
 basic_config_info = {}
 
 __mod_config_file_path__ = '/home/cb/workTest/pythonProject/conf/module.conf'
+
 
 class Config(HappyConfigBase):
     def __init__(self):
@@ -92,7 +70,7 @@ class Config(HappyConfigBase):
 def main():
     conf_path = __mod_config_file_path__
     browser_conf = Config()
-    HappyConfigParser.load(conf_path,browser_conf)
+    HappyConfigParser.load(conf_path, browser_conf)
 
     node_path = browser_conf.node_exec_path
     js_path = browser_conf.node_exec_script_path
@@ -103,11 +81,11 @@ def main():
 
     node_modules_path = browser_conf.env_node_modules_path
 
-    node_js_command  = '%s %s %s %s %s %s' % (node_path, js_path, chrome_path, url, json_path, jpg_path)
+    node_js_command = '%s %s %s %s %s %s' % (node_path, js_path, chrome_path, url, json_path, jpg_path)
 
     hlog.info(node_js_command)
 
-    os.putenv('NODE_PATH',node_modules_path)
+    os.putenv('NODE_PATH', node_modules_path)
     code = get_exit_code_of_cmd(cmd=node_js_command, is_show_error=True, is_show_output=True)
     os.unsetenv('NODE_PATH')
 
@@ -124,5 +102,6 @@ def main():
     hlog.info(website_details)
     hlog.info(len(website_details))
 
+
 if __name__ == '__main__':
-     main()
+    main()
