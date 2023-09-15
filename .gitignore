@@ -1,0 +1,15 @@
+.idea/
+__pycache__
+var/
+build/
+.venv
+*.conf
+*.ini
+*.pyc
+*.egg-info
+dist/
+error.log
+node_modules/
+
+Module/*.json
+Module/*.jpg

@@ -1,0 +1,11 @@
+[cbmod]
+node_exec_path=/usr/bin/node
+node_exec_script_path=/home/cb/workTest/pythonProject/Module/zymod_browser.js
+google_chrome_path=/usr/bin/google-chrome-stable
+node_js_command_line_parameters=--no-sandbox
+browser_url=https://www.baidu.com
+json_path= /home/cb/workTest/pythonProject/Module/2023_09_12_16_09_59.json
+jpg_path=/home/cb/workTest/pythonProject/Module/2023_09_12_16_09_59.jpg
+# nodejs 环境变量
+env_node_modules_path=/home/cb/workspace/ZhiYanModule/zhiyan-mod-browser/node_modules
+
